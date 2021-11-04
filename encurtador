@@ -34,6 +34,7 @@ elif [[ -z "$*" ]]; then
   echo -e "Uso:\n$0 -u | -url <URL>   :: Encurtar uma URL\n"
   exit 0
 else
+  # Se o parâmetro 1 não for -u ou -url...
   echo -e "\n${VERMELHO}Parametro desconhecido\nSaindo...\n${FIM}"
   false
 fi
