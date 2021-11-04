@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
+# Variáveis de cor
 CYANO='\033[0;36m'
 VERMELHO='\033[0;31m'
+AMARELO='\033[33;1m'
 FIM='\033[m'
 
+# CTRL + C/Z para fechar o programa
+trap encerr 2
+
+encerr(){
+  echo -e "\n\n${AMARELO}Processo interrompido\nSaíndo!${FIM}\n"
+  # Exit status de 'processo interrompido'
+  exit 130
+}
+
+# -u OU -url no parâmetro inicial startando o script
 if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
   while true; do
     echo -e "+${CYANO} Digite uma URL${FIM} (digite 'quit OU q' para sair)"
@@ -18,6 +30,7 @@ if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
     echo -e "+ URL encurtada: " | curl -s -k "https://is.gd/create.php?format=simple&url=$URL_"
     echo -e "${FIM}"
   done
+# Senão, todos os parâmetros forem vazios...
 elif [[ -z "$*" ]]; then
   echo -e "Uso:\n$0 -u | -url <URL>   :: Encurtar uma URL\n"
   exit 0
