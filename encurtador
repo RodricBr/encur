@@ -3,7 +3,6 @@
 # Variáveis de cor
 CYANO='\033[0;36m'
 VERMELHO='\033[0;31m'
-AMARELO='\033[33;1m'
 FIM='\033[m'
 
 # CTRL + C/Z para fechar o programa
@@ -35,7 +34,7 @@ elif [[ -z "$*" ]]; then
   echo -e "Uso:\n$0 -u | -url <URL>   :: Encurtar uma URL\n"
   exit 0
 else
-  echo -e "Parametro desconhecido\nSaindo...\n"
+  echo -e "\n${VERMELHO}Parametro desconhecido\nSaindo...\n${FIM}"
   false
 fi
 #
