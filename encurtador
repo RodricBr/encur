@@ -35,7 +35,6 @@ elif [[ -z "$*" ]]; then
   exit 0
 else
   # Se o parâmetro 1 não for -u ou -url...
-  echo -e "\n${VERMELHO}Parametro desconhecido\nUse: $0 para ver o painel de ajuda\nSaindo...\n${FIM}"
+  echo -e "\n${VERMELHO}Parametro desconhecido\nUse:${FIM} $0 ${VERMELHO}para ver o painel de ajuda\nSaindo...\n${FIM}"
   false
 fi
-#
