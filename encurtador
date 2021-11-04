@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+CYANO='\033[0;36m'
+VERMELHO='\033[0;31m'
+FIM='\033[m'
+
+if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
+  while true; do
+    echo -e "${CYANO}"
+    echo -e "${FIM}+${CYANO} Digite uma URL (digite 'quit' para sair)"
+    read -rp " URL: " URL_
+    if [[ "$URL_" =~ ^[Qq][Uu][Ii][Tt]$ ]]; then
+      echo -e "\n${VERMELHO}Saindo...${FIM}\n"
+      exit 0
+    fi
+    echo -e "+ URL encurtada: " | echo -e "" | curl -s -k "https://is.gd/create.php?format=simple&url=$URL_"
+    echo -e "${FIM}"
+  done
+elif [[ -z "$*" ]]; then
+  echo -e "Uso:\n$0 -u | -url <URL>   :: Encurtar uma URL\n"
+  exit 0
+else
+  false
+fi
