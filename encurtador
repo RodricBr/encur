@@ -6,13 +6,12 @@ FIM='\033[m'
 
 if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
   while true; do
-    echo -e "${CYANO}"
-    echo -e "${FIM}+${CYANO} Digite uma URL (digite 'quit' para sair)"
-    read -rp "  URL: " URL_
+    echo -e "+${CYANO} Digite uma URL${FIM} (digite 'quit OU q' para sair)"
+    read -rp "${CYANO}  URL: ${FIM}" URL_
     
     # Regex com ancora ^ ou $ para delimitar o fim/início da regex (ou as duas)
     # Se $URL_ for == quit em letra maiúscula em um.. dois.. ou todos os dígitos...
-    if [[ "$URL_" =~ ^[Qq][Uu][Ii][Tt]$ ]]; then
+    if [[ "$URL_" =~ ^[Qq][Uu][Ii][Tt]$ ]] || [[ "$URL_" =~ ^[Qq]$ ]]; then
       echo -e "\n${VERMELHO}Saindo...${FIM}\n"
       exit 0
     fi
