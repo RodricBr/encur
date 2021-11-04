@@ -10,7 +10,7 @@ FIM='\033[m'
 trap encerr 2
 
 encerr(){
-  echo -e "\n\n${AMARELO}Processo interrompido\nSaíndo!${FIM}\n"
+  echo -e "\n${VERMELHO}Saindo...${FIM}\n"
   # Exit status de 'processo interrompido'
   exit 130
 }
@@ -37,3 +37,4 @@ elif [[ -z "$*" ]]; then
 else
   false
 fi
+#
