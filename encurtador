@@ -21,6 +21,8 @@ if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
     read -rp "$(echo -e $CYANO"  URL: "$FIM)" URL_
     
     # Regex com ancora ^ ou $ para delimitar o fim/início da regex (ou as duas)
+    # Eu poderia também usar da seguinte forma: "$URL_^^", o que transformaria
+    # toda a variável URL_ em letra maiúscula!
     # Se $URL_ for == quit em letra maiúscula em um.. dois.. ou todos os dígitos...
     if [[ "$URL_" =~ ^[Qq][Uu][Ii][Tt]$ ]] || [[ "$URL_" =~ ^[Qq]$ ]]; then
       echo -e "\n${VERMELHO}Saindo...${FIM}\n"
