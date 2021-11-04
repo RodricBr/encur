@@ -19,7 +19,7 @@ encerr(){
 if [[ "$1" == "-u" ]] || [[ "$1" == "-url" ]]; then
   while true; do
     echo -e "+${CYANO} Digite uma URL${FIM} (digite 'quit OU q' para sair)"
-    read -rp "${CYANO}  URL: ${FIM}" URL_
+    read -rp "$(echo -e $CYANO"  URL: "$FIM)" URL_
     
     # Regex com ancora ^ ou $ para delimitar o fim/início da regex (ou as duas)
     # Se $URL_ for == quit em letra maiúscula em um.. dois.. ou todos os dígitos...
